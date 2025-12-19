@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>صفحة الحجوزات - Admin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/booking.css">
+  <style>
+    /* إضافات بسيطة لصفحة الإدارة */
+    body { padding: 20px; background: #f6f9fb; direction: rtl; font-family: "Alexandria", sans-serif; }
+    .admin-box { max-width: 1000px; margin: 0 auto; background: #fff; padding: 18px; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    h1 { text-align: center; margin-bottom: 12px; }
+    .login { display:flex; gap:8px; justify-content:center; margin-bottom: 10px; }
+    .login input { padding:8px; border-radius:6px; border:1px solid #ddd; min-width:200px; }
+    .login button { padding:8px 10px; border-radius:6px; background:#037373; color:#fff; border:0; cursor:pointer;}
+    table { width:100%; border-collapse: collapse; margin-top:12px; }
+    th, td { padding:10px; border-bottom:1px solid #eee; text-align: right; font-size:14px;}
+    th { background:#f2f6f8; }
+    .controls { display:flex; gap:8px; justify-content:flex-end; margin-top:8px; }
+    .controls button { padding:8px 10px; border-radius:6px; border:0; cursor:pointer; }
+    .btn-danger { background:#c0392b; color:#fff; }
+    .btn-export { background:#1e88e5; color:#fff; }
+    .msg { text-align:center; color:#666; margin-top:8px; }
+    .note { font-size:13px; color:#555; margin-bottom:6px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="admin-box" role="main">
+    <h1>لوحة عرض الحجوزات (Admin)</h1>
+
+    <p class="note">هذه الصفحة مخصصة للمدير فقط. ستحتاج كلمة مرور لعرض الحجوزات المخزنة محليًا.</p>
+
+    <div class="login" id="loginArea">
+      <input type="password" id="adminPass" placeholder="أدخل كلمة المرور">
+      <button id="btnLogin">تسجيل الدخول</button>
+    </div>
+
+    <div id="adminControls" style="display:none;">
+      <div class="controls">
+        <button id="btnExport" class="btn-export">تصدير CSV</button>
+        <button id="btnClear" class="btn-danger">حذف جميع الحجوزات</button>
+      </div>
+
+      <div class="msg" id="adminMsg"></div>
+      <div style="text-align:center;margin:12px 0">
+  <input id="search" placeholder="ابحث بالاسم أو رقم الهاتف..." style="padding:8px 10px;border-radius:6px;width:260px">
+  <button id="clear" style="margin-left:8px;padding:8px 10px;border-radius:6px">مسح</button>
+</div>
+
+      <table aria-label="قائمة الحجوزات" id="bookings">
+        <thead>
+          <tr>
+            <th>الرقم</th>
+            <th>نوع الحجز</th>
+            <th>الاسم الكامل</th>
+            <th>الهاتف</th>
+            <th>الوقت</th>
+            <th>وقت الإرسال</th>
+          </tr>
+        </thead>
+        <tbody id="bookingsBody">
+          <!-- الحجوزات تُعبأ هنا بواسطة JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="js/admin-booking.js"></script>
+  <script src="js/admin-booking.js"></script>
+</body>
+</html>

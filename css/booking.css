@@ -1,0 +1,121 @@
+/* ملف CSS خاص بنموذج الحجز (لا يغير نص الموقع الأصلي) */
+:root {
+  --gc-overlay: rgba(0,0,0,0.5);
+  --gc-bg: #fff;
+  --gc-accent: #1e88e5;
+  --gc-radius: 10px;
+  --gc-text: #222;
+  --gc-muted: #666;
+  --gc-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+.gc-modal,
+#bookingModal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  direction: rtl;
+}
+#bookingModal[aria-hidden="false"] {
+  display: flex;
+}
+
+/* overlay */
+.gc-overlay,
+#bookingModal .gc-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--gc-overlay);
+}
+
+/* dialog */
+.gc-dialog,
+#bookingModal .gc-dialog {
+  position: relative;
+  width: min(520px, 95%);
+  max-height: 88vh;
+  overflow: auto;
+  background: var(--gc-bg);
+  border-radius: var(--gc-radius);
+  padding: 14px;
+  box-shadow: var(--gc-shadow);
+  z-index: 2001;
+  color: var(--gc-text);
+  font-size: 14px;
+}
+
+/* close */
+.gc-close {
+  position: absolute;
+  top: 10px;
+  left: 12px; /* لأن الاتجاه RTL */
+  border: 0;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* form */
+.gc-form label {
+  display: block;
+  margin: 8px 0;
+  font-size: 13px;
+  color: var(--gc-text);
+}
+.gc-form input,
+.gc-form textarea,
+.gc-form select {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 6px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--gc-text);
+  background: #fff;
+}
+.gc-summary {
+  background: #f7f7f9;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--gc-muted);
+}
+
+/* actions */
+.gc-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.gc-btn {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #f4f4f4;
+}
+.gc-primary {
+  background: var(--gc-accent);
+  color: white;
+  border-color: transparent;
+}
+
+/* message */
+.gc-msg {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--gc-muted);
+  min-height: 20px;
+}
+
+/* responsive */
+@media (max-width:420px) {
+  .gc-dialog { padding: 12px; width: 92%; }
+  .gc-close { top: 8px; left: 8px; }
+}
